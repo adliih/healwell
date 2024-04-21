@@ -1,3 +1,20 @@
+# Heal Well Catalog
+
+This app will basically render the catalog from our Heal Well database stored in Google Sheet.
+
+The requirements are follow:
+
+- Able to fetch google spreadsheet by id
+- Able to get the sheet by name (e.g: "Product")
+- Able to get the image that were attached inside the cell. The cell value is not in string (link format), but it is image inside cell.
+- Only process non empty row.
+- Render the catalog with predefined template
+
+The structure of the product database is as follow:
+| Product | Provider | Selling Price | Stock | - | - | Image |
+|------------------|-----------------|---------------|-------|-----|-----|-------|
+| Sadajiwa - 30ml | Rahsa Nusantara | Rp30,000 | 10 | - | - | <Image inside the cell>|
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
