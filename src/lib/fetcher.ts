@@ -8,6 +8,29 @@ export interface ProductData {
   imageUrls: string[];
 }
 
+function parseImages(images: string): string[] {
+  if (!images) {
+    return [];
+  }
+
+  const urls = images.split(",");
+  return urls.map(parseGdriveImageLink).filter(isNonEmptyUrl);
+}
+
+function isNonEmptyUrl(url: string): boolean {
+  return url.trim() != "";
+}
+
+function parseGdriveImageLink(image: string): string {
+  return image
+    .replace(
+      "https://drive.google.com/file/d/",
+      "https://lh3.googleusercontent.com/d/"
+    )
+    .replace(/\/view.*/, "?authuser=0")
+    .trim();
+}
+
 export class ProductFetcher {
   async get(): Promise<ProductData[]> {
     const sheetData = await getSheetData(
@@ -18,15 +41,18 @@ export class ProductFetcher {
 
     const rows = sheetData?.filter((row) => !!row[0]);
 
-    return (
-      rows?.map(([name, provider, price, quantity]) => ({
+    let results =
+      rows?.map(([name, provider, price, quantity, _, _2, images]) => ({
         name,
         provider,
         price,
         quantity,
-        imageUrls: ["https://picsum.photos/200/300"],
-      })) || []
-    );
+        imageUrls: parseImages(images),
+      })) || [];
+
+    results = results.filter((r) => r.imageUrls.length > 0);
+
+    return results;
   }
 }
 
