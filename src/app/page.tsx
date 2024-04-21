@@ -1,12 +1,13 @@
-import { productFetcher } from "@/lib";
-import ProductList from "./components/ProductList";
+import { grouper, productFetcher } from "@/lib";
+import GroupedProductList from "./components/GroupedProductList";
 
 export default async function Home() {
   const products = await productFetcher.get();
+  const groups = grouper.byProvider(products);
 
   return (
-    <main className="grid grid-cols-4 gap-4 min-h-screen items-center justify-between p-24">
-      <ProductList products={products} />
+    <main className="gap-4 min-h-screen items-center justify-between p-24">
+      <GroupedProductList groups={groups} />
     </main>
   );
 }
