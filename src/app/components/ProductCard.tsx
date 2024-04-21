@@ -9,7 +9,11 @@ export default function ProductCard({ product }: { product: ProductData }) {
       id={name}
       className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
     >
-      <img className="h-52 w-full rounded-t-xl" src={imgUrl} alt={name} />
+      <img
+        className="h-64 w-full rounded-t-xl object-cover"
+        src={imgUrl}
+        alt={name}
+      />
       <div className="p-4 md:p-5">
         <h3 className="text-lg font-bold text-gray-800 dark:text-white">
           {name}
