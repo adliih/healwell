@@ -1,3 +1,5 @@
+import { getSheetData } from "./google/sheet";
+
 export interface ProductData {
   name: string;
   provider: string;
@@ -8,13 +10,23 @@ export interface ProductData {
 
 export class ProductFetcher {
   async get(): Promise<ProductData[]> {
-    return Array.from({ length: 20 }).map(() => ({
-      name: "Sadajiwa - 30ml",
-      provider: "Rahsa Nusantara",
-      price: "Rp30,000",
-      imageUrls: ["https://picsum.photos/200/300"],
-      quantity: 10,
-    }));
+    const sheetData = await getSheetData(
+      process.env.SPREADSHEET_ID!,
+      process.env.RANGE!
+    );
+    sheetData?.shift();
+
+    const rows = sheetData?.filter((row) => !!row[0]);
+
+    return (
+      rows?.map(([name, provider, price, quantity]) => ({
+        name,
+        provider,
+        price,
+        quantity,
+        imageUrls: ["https://picsum.photos/200/300"],
+      })) || []
+    );
   }
 }
 
