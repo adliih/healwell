@@ -15,9 +15,7 @@ export default function ProductCard({ product }: { product: ProductData }) {
         alt={name}
       />
       <div className="p-4 md:p-5">
-        <h3 className="text-lg font-bold text-gray-800 dark:text-white">
-          {name}
-        </h3>
+        <h3 className="text-lg font-bold dark:text-white">{name}</h3>
         <p className="mt-1 text-gray-500 dark:text-neutral-400">{provider}</p>
         <p className="mt-5 text-xs text-gray-500 dark:text-neutral-500">
           {price}
