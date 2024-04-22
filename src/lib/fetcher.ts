@@ -14,21 +14,11 @@ function parseImages(images: string): string[] {
   }
 
   const urls = images.split(",");
-  return urls.map(parseGdriveImageLink).filter(isNonEmptyUrl);
+  return urls.filter(isNonEmptyUrl);
 }
 
 function isNonEmptyUrl(url: string): boolean {
   return url.trim() != "";
-}
-
-function parseGdriveImageLink(image: string): string {
-  return image
-    .replace(
-      "https://drive.google.com/file/d/",
-      "https://lh3.googleusercontent.com/d/"
-    )
-    .replace(/\/view.*/, "?authuser=0")
-    .trim();
 }
 
 export class ProductFetcher {
@@ -37,12 +27,11 @@ export class ProductFetcher {
       process.env.SPREADSHEET_ID!,
       process.env.RANGE!
     );
-    sheetData?.shift();
 
-    const rows = sheetData?.filter((row) => !!row[0]);
+    const rows = sheetData?.filter((row) => !!row[0]) || [];
 
     let results =
-      rows?.map(([name, provider, price, quantity, _, _2, images]) => ({
+      rows?.map(([name, provider, price, quantity, images]) => ({
         name,
         provider,
         price,
