@@ -7,7 +7,7 @@ export default function ProductCard({ product }: { product: ProductData }) {
   return (
     <div
       id={name}
-      className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+      className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
     >
       <img
         className="h-48 md:h-64 w-full rounded-t-xl object-cover"
@@ -21,6 +21,11 @@ export default function ProductCard({ product }: { product: ProductData }) {
           {price}
         </p>
       </div>
+      {quantity > 0 && (
+        <span className="absolute top-4 end-4 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white">
+          {quantity}
+        </span>
+      )}
     </div>
   );
 }
