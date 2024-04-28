@@ -1,4 +1,5 @@
 import { ProductData } from "@/lib";
+import Image from "next/image";
 
 export default function ProductCard({ product }: { product: ProductData }) {
   const { imageUrls, name, price, provider, quantity } = product;
@@ -9,8 +10,10 @@ export default function ProductCard({ product }: { product: ProductData }) {
       id={name}
       className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl "
     >
-      <img
-        className="h-48 md:h-64 w-full rounded-t-xl object-cover"
+      <Image
+        className="h-48 lg:h-64 w-full rounded-t-xl object-cover"
+        width={800}
+        height={800}
         src={imgUrl}
         alt={name}
       />
