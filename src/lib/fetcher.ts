@@ -3,7 +3,7 @@ import { getSheetData } from "./google/sheet";
 export interface ProductData {
   name: string;
   provider: string;
-  quantity: number;
+  quantity: string;
   price: string;
   imageUrls: string[];
 }

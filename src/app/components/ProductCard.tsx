@@ -21,8 +21,8 @@ export default function ProductCard({ product }: { product: ProductData }) {
           {price}
         </p>
       </div>
-      {quantity > 0 && (
-        <span className="absolute top-4 end-4 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white">
+      {!!quantity && (
+        <span className="absolute top-4 right-4 flex items-center justify-center min-w-6 min-h-6 text-center align-middle py-0.5 px-1.5 rounded-full text-xs font-medium bg-red-500 text-white">
           {quantity}
         </span>
       )}
