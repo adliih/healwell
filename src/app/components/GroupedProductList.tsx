@@ -10,7 +10,7 @@ export default function GroupedProductList({ groups }: { groups: Grouped[] }) {
         return (
           <div className="hs-accordion active" key={name}>
             <button
-              className="hs-accordion-toggle hs-accordion-active py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:outline-none dark:focus:text-neutral-400"
+              className="hs-accordion-toggle hs-accordion-active py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none "
               aria-controls="hs-basic-no-arrow-collapse-one"
             >
               <svg
