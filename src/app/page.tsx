@@ -8,7 +8,7 @@ export default async function Home() {
   const groups = grouper.byProvider(products);
 
   return (
-    <main className="gap-4 min-h-screen items-center justify-between p-24">
+    <main className="container mx-auto px-2">
       <GroupedProductList groups={groups} />
     </main>
   );
