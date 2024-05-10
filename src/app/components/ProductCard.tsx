@@ -8,7 +8,7 @@ export default function ProductCard({ product }: { product: ProductData }) {
   return (
     <div
       id={name}
-      className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl aspect-square w-48 h-full"
+      className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl aspect-square w-full h-full"
     >
       <Image
         className="w-full aspect-square rounded-t-xl object-cover"
