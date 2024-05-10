@@ -18,9 +18,5 @@ export default async function List({
     product.quantity = undefined;
   });
 
-  return (
-    <main className="gap-4 min-h-screen items-center justify-between p-24">
-      <ProductList products={filtered} />
-    </main>
-  );
+  return <ProductList products={filtered} />;
 }

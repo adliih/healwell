@@ -7,9 +7,5 @@ export default async function Home() {
   const products = await productFetcher.get();
   const groups = grouper.byProvider(products);
 
-  return (
-    <main className="container mx-auto px-2">
-      <GroupedProductList groups={groups} />
-    </main>
-  );
+  return <GroupedProductList groups={groups} />;
 }
