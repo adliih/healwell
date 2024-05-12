@@ -18,10 +18,15 @@ export default function ProductCard({ product }: { product: ProductData }) {
         alt={name}
       />
       <div className="p-2 flex flex-col">
-        <h3 className="text-md font-bold ">{name}</h3>
-        <p className="mt-1 text-sm text-gray-500 ">{provider}</p>
+        <h3 className="text-sm font-bold tracking-tight line-clamp-2 hover:line-clamp-none">
+          {name}
+        </h3>
+        <p className="mt-1 font-extralight text-xs text-gray-500 ">
+          {provider}
+        </p>
         <p className="mt-2 text-xs text-gray-500 ">{price}</p>
       </div>
+
       {!!quantity && (
         <span className="absolute top-2 right-2 flex items-center justify-center min-w-6 min-h-6 text-center align-middle py-0.5 px-1.5 rounded-full text-xs font-medium bg-red-500 text-white">
           {quantity}
