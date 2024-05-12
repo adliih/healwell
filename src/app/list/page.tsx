@@ -12,7 +12,7 @@ export default async function List({
     take: number;
   };
 }) {
-  const { providers = [], skip, take } = searchParams;
+  const { providers, skip, take } = searchParams;
 
   const products = await productFetcher.get({
     filter: { providers },
