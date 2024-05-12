@@ -10,13 +10,15 @@ export default function ProductCard({ product }: { product: ProductData }) {
       id={name}
       className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl aspect-square w-full h-full group"
     >
-      <Image
-        className="w-full aspect-square rounded-t-xl object-cover"
-        width={800}
-        height={800}
-        src={imgUrl}
-        alt={name}
-      />
+      <div className="relative flex-grow">
+        <Image
+          className="w-full aspect-square rounded-t-xl object-cover"
+          fill={true}
+          objectFit="cover"
+          src={imgUrl}
+          alt={name}
+        />
+      </div>
       <div className="p-2 flex flex-col">
         <h3 className="text-sm font-bold tracking-tight line-clamp-1 group-hover:line-clamp-none">
           {name}
