@@ -13,6 +13,10 @@ export interface GetProductInput {
   filter?: {
     providers?: string[];
   };
+  pagination?: {
+    skip?: number;
+    take?: number;
+  };
 }
 
 function parseImages(images: string): string[] {
@@ -53,11 +57,13 @@ async function getAndParseSheetToProductData(): Promise<ProductData[]> {
 export class ProductFetcher {
   async get(input?: GetProductInput): Promise<ProductData[]> {
     const { providers } = input?.filter || {};
+    const { skip = 0, take = Infinity } = input?.pagination || {};
     let results = await getAndParseSheetToProductData();
 
     if (!!providers) {
       results = filterer.byProviders(results, providers);
     }
+    results = results.slice(skip, skip + take);
 
     return results;
   }

@@ -8,11 +8,16 @@ export default async function List({
 }: {
   searchParams: {
     providers: string[];
+    skip: number;
+    take: number;
   };
 }) {
-  const providers = searchParams.providers || [];
+  const { providers = [], skip, take } = searchParams;
 
-  const products = await productFetcher.get({ filter: { providers } });
+  const products = await productFetcher.get({
+    filter: { providers },
+    pagination: { skip, take },
+  });
   products.forEach((product) => {
     product.quantity = undefined;
   });
