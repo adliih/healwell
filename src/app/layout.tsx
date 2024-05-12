@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="container mx-auto px-2">{children}</main>
+        <main className="container mx-auto p-2">{children}</main>
       </body>
       <PrelineScript />
     </html>
