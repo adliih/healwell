@@ -8,7 +8,7 @@ export default function ProductCard({ product }: { product: ProductData }) {
   return (
     <div
       id={name}
-      className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl aspect-square w-full h-full"
+      className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl aspect-square w-full h-full group"
     >
       <Image
         className="w-full aspect-square rounded-t-xl object-cover"
@@ -18,7 +18,7 @@ export default function ProductCard({ product }: { product: ProductData }) {
         alt={name}
       />
       <div className="p-2 flex flex-col">
-        <h3 className="text-sm font-bold tracking-tight line-clamp-2 hover:line-clamp-none">
+        <h3 className="text-sm font-bold tracking-tight line-clamp-1 group-hover:line-clamp-none">
           {name}
         </h3>
         <p className="mt-1 font-extralight text-xs text-gray-500 ">
