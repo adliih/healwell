@@ -22,10 +22,6 @@ export default async function List({ searchParams }: Param) {
       take,
     },
   });
-  products.forEach((product) => {
-    product.quantity = undefined;
-  });
-
   return (
     <>
       <ProductList products={products} />

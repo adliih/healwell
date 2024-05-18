@@ -50,7 +50,7 @@ export default function GroupedProductList({ groups }: { groups: Grouped[] }) {
             >
               <ProductList
                 products={products}
-                CardAdditionalComponent={ProductQuantityIndicator}
+                CardAdditionalComponents={[ProductQuantityIndicator]}
               />
             </div>
           </div>

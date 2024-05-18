@@ -5,10 +5,10 @@ import ProductQuantityIndicator from "./ProductQuantityIndicator";
 
 interface Props {
   product: ProductData;
-  AdditionalComponent?: ElementType; // Type for a component
+  AdditionalComponents?: ElementType[]; // Type for a component
 }
 
-export default function ProductCard({ product, AdditionalComponent }: Props) {
+export default function ProductCard({ product, AdditionalComponents }: Props) {
   const { imageUrls, name, price, provider } = product;
   const imgUrl = imageUrls?.[0];
 
@@ -34,7 +34,9 @@ export default function ProductCard({ product, AdditionalComponent }: Props) {
         </p>
         <p className="mt-2 text-xs text-gray-500 ">{price}</p>
       </div>
-      {AdditionalComponent && <AdditionalComponent product={product} />}
+      {AdditionalComponents?.map((AdditionalComponent) => (
+        <AdditionalComponent key={AdditionalComponent} product={product} />
+      ))}
     </div>
   );
 }
