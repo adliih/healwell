@@ -29,7 +29,7 @@ export default async function List({ searchParams }: Param) {
   return (
     <>
       <ProductList products={products} />
-      <ArrowPagination searchParams={{ skip, take, providers }} />
+      <ArrowPagination />
     </>
   );
 }
