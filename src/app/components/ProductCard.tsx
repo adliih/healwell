@@ -14,7 +14,6 @@ export default function ProductCard({ product }: { product: ProductData }) {
         <Image
           className="w-full aspect-square rounded-t-xl object-cover"
           fill={true}
-          objectFit="cover"
           src={imgUrl}
           alt={name}
         />

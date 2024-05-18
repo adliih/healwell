@@ -1,29 +1,35 @@
-export const dynamic = "force-dynamic"; // defaults to auto
-
 import { productFetcher } from "@/lib";
 import ProductList from "../components/ProductList";
+import ArrowPagination from "../components/ArrowPagination";
 
-export default async function List({
-  searchParams,
-}: {
+interface Param {
   searchParams: {
     providers: string[];
     skip: string;
     take: string;
   };
-}) {
-  const { providers, skip, take } = searchParams;
+}
+
+export default async function List({ searchParams }: Param) {
+  const { providers } = searchParams;
+  const skip = parseInt(searchParams.skip) || 0;
+  const take = parseInt(searchParams.take) || Infinity;
 
   const products = await productFetcher.get({
     filter: { providers },
     pagination: {
-      skip: parseInt(skip) || undefined,
-      take: parseInt(take) || undefined,
+      skip,
+      take,
     },
   });
   products.forEach((product) => {
     product.quantity = undefined;
   });
 
-  return <ProductList products={products} />;
+  return (
+    <>
+      <ProductList products={products} />
+      <ArrowPagination searchParams={{ skip, take, providers }} />
+    </>
+  );
 }
