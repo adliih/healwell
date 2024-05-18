@@ -1,8 +1,15 @@
 import { ProductData } from "@/lib";
 import Image from "next/image";
+import { ElementType, ReactNode } from "react";
+import ProductQuantityIndicator from "./ProductQuantityIndicator";
 
-export default function ProductCard({ product }: { product: ProductData }) {
-  const { imageUrls, name, price, provider, quantity } = product;
+interface Props {
+  product: ProductData;
+  AdditionalComponent?: ElementType; // Type for a component
+}
+
+export default function ProductCard({ product, AdditionalComponent }: Props) {
+  const { imageUrls, name, price, provider } = product;
   const imgUrl = imageUrls?.[0];
 
   return (
@@ -27,12 +34,7 @@ export default function ProductCard({ product }: { product: ProductData }) {
         </p>
         <p className="mt-2 text-xs text-gray-500 ">{price}</p>
       </div>
-
-      {!!quantity && (
-        <span className="absolute top-2 right-2 flex items-center justify-center min-w-6 min-h-6 text-center align-middle py-0.5 px-1.5 rounded-full text-xs font-medium bg-red-500 text-white">
-          {quantity}
-        </span>
-      )}
+      {AdditionalComponent && <AdditionalComponent product={product} />}
     </div>
   );
 }

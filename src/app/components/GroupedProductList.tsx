@@ -1,5 +1,6 @@
 import { Grouped } from "@/lib";
 import ProductList from "./ProductList";
+import ProductQuantityIndicator from "./ProductQuantityIndicator";
 
 export default function GroupedProductList({ groups }: { groups: Grouped[] }) {
   return (
@@ -47,7 +48,10 @@ export default function GroupedProductList({ groups }: { groups: Grouped[] }) {
               className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
               aria-labelledby="hs-basic-no-arrow-heading-one"
             >
-              <ProductList products={products} />
+              <ProductList
+                products={products}
+                CardAdditionalComponent={ProductQuantityIndicator}
+              />
             </div>
           </div>
         );
