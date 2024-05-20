@@ -24,7 +24,7 @@ export default async function List({ searchParams }: Param) {
   });
   return (
     <>
-      <ProductList products={products} />
+      <ProductList className="grid-cols-3 grid-rows-3" products={products} />
       <ArrowPagination />
     </>
   );
