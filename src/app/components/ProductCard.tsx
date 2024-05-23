@@ -17,7 +17,7 @@ export default function ProductCard({ product, AdditionalComponents }: Props) {
       id={name}
       className="relative inline-flex flex-col bg-white border shadow-sm rounded-xl aspect-square w-full h-full group"
     >
-      <div className="relative flex-grow">
+      <div className="relative grow">
         <Image
           className="w-full aspect-square rounded-t-xl object-cover"
           fill={true}
@@ -26,13 +26,17 @@ export default function ProductCard({ product, AdditionalComponents }: Props) {
         />
       </div>
       <div className="p-2 flex flex-col">
-        <h3 className="text-sm font-bold tracking-tight line-clamp-1 group-hover:line-clamp-none">
-          {name}
-        </h3>
-        <p className="mt-1 font-extralight text-xs text-gray-500 ">
-          {provider}
-        </p>
-        <p className="mt-2 text-xs text-gray-500 ">{price}</p>
+        <div className="flex flex-col min-h-16">
+          <h3 className="flex-none text-sm font-bold tracking-tight ">
+            {name}
+          </h3>
+          <p className="flex-none mt-1 font-extralight text-xs text-gray-500 ">
+            {provider}
+          </p>
+        </div>
+        <div className="flex justify-between">
+          <p className="mt-2 text-xs text-gray-500 ">{price}</p>
+        </div>
       </div>
       {AdditionalComponents?.map((AdditionalComponent) => (
         <AdditionalComponent key={AdditionalComponent} product={product} />
