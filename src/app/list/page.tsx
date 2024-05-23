@@ -1,6 +1,7 @@
 import { productFetcher } from "@/lib";
 import ProductList from "../components/ProductList";
 import ArrowPagination from "../components/ArrowPagination";
+import ProductCardPriceList from "../components/product-card/ProductCardPriceList";
 
 interface Param {
   searchParams: {
@@ -24,7 +25,11 @@ export default async function List({ searchParams }: Param) {
   });
   return (
     <>
-      <ProductList className="grid-rows-3" products={products} />
+      <ProductList
+        className="grid-rows-3"
+        products={products}
+        ProductCard={ProductCardPriceList}
+      />
       <ArrowPagination />
     </>
   );

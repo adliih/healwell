@@ -1,6 +1,7 @@
 import { Grouped } from "@/lib";
 import ProductList from "./ProductList";
-import ProductQuantityIndicator from "./ProductQuantityIndicator";
+import ProductQuantityIndicator from "./product-card/components/ProductCardQuantityIndicator";
+import ProductCard from "./product-card/ProductCard";
 
 export default function GroupedProductList({ groups }: { groups: Grouped[] }) {
   return (
@@ -48,10 +49,7 @@ export default function GroupedProductList({ groups }: { groups: Grouped[] }) {
               className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
               aria-labelledby="hs-basic-no-arrow-heading-one"
             >
-              <ProductList
-                products={products}
-                CardAdditionalComponents={[ProductQuantityIndicator]}
-              />
+              <ProductList products={products} ProductCard={ProductCard} />
             </div>
           </div>
         );

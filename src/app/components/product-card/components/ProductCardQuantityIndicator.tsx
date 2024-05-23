@@ -1,10 +1,8 @@
-import { ProductData } from "@/lib";
+import { ProductCardProps } from "../ProductCard.type";
 
-interface Props {
-  product: ProductData;
-}
-
-export default function ProductQuantityIndicator({ product }: Props) {
+export default function ProductCardQuantityIndicator({
+  product,
+}: ProductCardProps) {
   const { quantity } = product;
   if (!quantity) {
     return <></>;
