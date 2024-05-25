@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic"; // defaults to auto
 
-import { grouper, productFetcher } from "@/lib";
+import { productFetcher } from "@/lib/server";
+import { grouper } from "@/lib/client";
 import GroupedProductList from "./components/GroupedProductList";
 
 interface Param {

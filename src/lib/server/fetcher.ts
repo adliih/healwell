@@ -1,23 +1,6 @@
 import { filterer } from ".";
+import { GetProductInput, ProductData } from "../type";
 import { getSheetData } from "./google/sheet";
-
-export interface ProductData {
-  name: string;
-  provider: string;
-  quantity?: string;
-  price: string;
-  imageUrls: string[];
-}
-
-export interface GetProductInput {
-  filter?: {
-    providers?: string[];
-  };
-  pagination?: {
-    skip?: number;
-    take?: number;
-  };
-}
 
 function parseImages(images: string): string[] {
   if (!images) {

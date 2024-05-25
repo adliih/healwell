@@ -1,4 +1,4 @@
-import { productFetcher } from "@/lib";
+import { productFetcher } from "@/lib/server";
 import ProductList from "../components/ProductList";
 import ArrowPagination from "../components/ArrowPagination";
 import ProductCardPriceList from "../components/product-card/ProductCardPriceList";

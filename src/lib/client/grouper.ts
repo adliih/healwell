@@ -1,4 +1,4 @@
-import { ProductData } from ".";
+import { ProductData } from "../type";
 
 export interface Grouped {
   name: string;

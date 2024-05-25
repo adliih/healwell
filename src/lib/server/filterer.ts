@@ -1,4 +1,4 @@
-import { ProductData } from ".";
+import { ProductData } from "../type";
 
 export class Filterer {
   byProviders(products: ProductData[], providers: string[]): ProductData[] {

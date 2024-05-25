@@ -1,4 +1,4 @@
-import { productFetcher } from "@/lib";
+import { productFetcher } from "@/lib/server";
 
 export const dynamic = "force-dynamic"; // defaults to auto
 export async function GET() {
