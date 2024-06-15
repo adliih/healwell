@@ -11,12 +11,9 @@ export default function FloatingCart() {
     0
   );
 
-  if (count < 1) {
-    return <></>;
-  }
-
   const formatCartMessage = () => {
     return Object.entries(productCart)
+      .filter(([product, quantity]) => !!quantity)
       .map(([product, quantity]) => {
         return `- *${product}* : (${quantity})`;
       })
@@ -33,7 +30,7 @@ export default function FloatingCart() {
         <div className="p-2 ">
           <div className="flex justify-center items-center m-2">
             <WhatsAppIcon />
-            <Badge>{count}</Badge>
+            {!!count && <Badge>{count}</Badge>}
           </div>
         </div>
       </div>
