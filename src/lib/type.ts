@@ -15,3 +15,8 @@ export interface GetProductInput {
     take?: number;
   };
 }
+
+export interface Grouped {
+  name: string;
+  products: ProductData[];
+}

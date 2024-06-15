@@ -1,6 +1,5 @@
-import { Grouped } from "@/lib";
+import { Grouped } from "@/lib/type";
 import ProductList from "./ProductList";
-import ProductQuantityIndicator from "./product-card/components/ProductCardQuantityIndicator";
 import ProductCard from "./product-card/ProductCard";
 
 export default function GroupedProductList({ groups }: { groups: Grouped[] }) {

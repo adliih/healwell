@@ -1,9 +1,4 @@
-import { ProductData } from "../type";
-
-export interface Grouped {
-  name: string;
-  products: ProductData[];
-}
+import { Grouped, ProductData } from "../type";
 
 export class Grouper {
   byProvider(products: ProductData[]): Grouped[] {
