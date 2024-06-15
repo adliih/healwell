@@ -1,4 +1,3 @@
-import StoreProvider from "@/app/StoreProvider";
 import { ProductCardType } from "./ProductCard.type";
 import ProductCardCart from "./components/ProductCardCart";
 import ProductCardContainer from "./components/ProductCardContainer";
@@ -16,9 +15,7 @@ const ProductCard: ProductCardType = ({ product }) => {
         <ProductCardName product={product} />
         <div className="flex justify-between">
           <ProductCardPrice product={product} />
-          <StoreProvider>
-            <ProductCardCart product={product} />
-          </StoreProvider>
+          <ProductCardCart product={product} />
         </div>
         <ProductCardQuantityIndicator product={product} />
       </ProductCardInformationContainer>

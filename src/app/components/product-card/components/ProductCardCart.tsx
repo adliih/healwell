@@ -7,7 +7,7 @@ import MinusIcon from "../../icons/MinusIcon";
 import PlusIcon from "../../icons/PlusIcon";
 
 export default function ProductCardCart({ product }: ProductCardProps) {
-  const { name } = product;
+  const { name, quantity } = product;
   const dispatch = useAppDispatch();
   const productCart = useAppSelector(selectProductCart(name));
 
@@ -19,13 +19,20 @@ export default function ProductCardCart({ product }: ProductCardProps) {
     );
   }
 
+  const isPlusDisabled = productCart >= quantity;
+
   return (
     <div className="grid grid-cols-3 gap-2">
       <button onClick={() => dispatch(update({ name, diff: -1 }))}>
         <MinusIcon />
       </button>
       <p className="text-center">{productCart}</p>
-      <button onClick={() => dispatch(update({ name, diff: 1 }))}>
+
+      <button
+        className={`${isPlusDisabled ? "text-gray-400" : ""}`}
+        onClick={() => !isPlusDisabled && dispatch(update({ name, diff: 1 }))}
+        disabled={isPlusDisabled}
+      >
         <PlusIcon />
       </button>
     </div>
