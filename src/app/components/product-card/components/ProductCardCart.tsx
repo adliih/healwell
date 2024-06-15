@@ -11,6 +11,13 @@ export default function ProductCardCart({ product }: ProductCardProps) {
   const dispatch = useAppDispatch();
   const productCart = useAppSelector(selectProductCart(name));
 
+  if (!quantity) {
+    return <></>;
+  }
+  if (!parseInt(quantity)) {
+    return <></>;
+  }
+
   if (!productCart) {
     return (
       <button onClick={() => dispatch(update({ name, diff: 1 }))}>
