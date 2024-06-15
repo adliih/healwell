@@ -15,16 +15,28 @@ export default function FloatingCart() {
     return <></>;
   }
 
+  const formatCartMessage = () => {
+    return Object.entries(productCart)
+      .map(([product, quantity]) => {
+        return `- *${product}* : (${quantity})`;
+      })
+      .join("\n");
+  };
+  const urlPrefix = process.env.NEXT_PUBLIC_WHATSAPP_URL_PREFIX;
+  const message = formatCartMessage();
+  const encodedMessage = encodeURIComponent(message);
+  const url = `${urlPrefix}${encodedMessage}`;
+
   return (
-    <button>
+    <a href={url} target="_blank">
       <div className="fixed bottom-4 right-4">
-        <div className="bg-neutral-100 p-2 rounded-lg shadow-2xl">
-          <div className="h-10  w-10 flex justify-center items-center m-2">
+        <div className="p-2 ">
+          <div className="flex justify-center items-center m-2">
             <WhatsAppIcon />
             <Badge>{count}</Badge>
           </div>
         </div>
       </div>
-    </button>
+    </a>
   );
 }
