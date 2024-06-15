@@ -1,4 +1,4 @@
-import { ProductData } from "@/lib";
+import { ProductData } from "@/lib/type";
 
 export interface ProductCardProps {
   product: ProductData;

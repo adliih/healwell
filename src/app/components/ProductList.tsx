@@ -1,4 +1,4 @@
-import { ProductData } from "@/lib";
+import { ProductData } from "@/lib/type";
 import { ProductCardType } from "./product-card/ProductCard.type";
 
 interface Props {

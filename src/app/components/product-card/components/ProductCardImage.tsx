@@ -1,4 +1,4 @@
-import { ProductData } from "@/lib";
+import { ProductData } from "@/lib/type";
 import Image from "next/image";
 
 export default function ProductCardImage({
