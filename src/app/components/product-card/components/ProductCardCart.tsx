@@ -7,14 +7,12 @@ import MinusIcon from "../../icons/MinusIcon";
 import PlusIcon from "../../icons/PlusIcon";
 
 export default function ProductCardCart({ product }: ProductCardProps) {
-  const { name, quantity } = product;
+  const { name } = product;
+  const quantity = parseInt(product.quantity || "");
   const dispatch = useAppDispatch();
   const productCart = useAppSelector(selectProductCart(name));
 
   if (!quantity) {
-    return <></>;
-  }
-  if (!parseInt(quantity)) {
     return <></>;
   }
 
