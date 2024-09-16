@@ -3,6 +3,7 @@ import Image from "next/image";
 import ModalButton from "../../ui/ModalButton";
 import Modal from "../../ui/Modal";
 import ProductCardContainer from "./ProductCardContainer";
+import Carousel from "../../ui/Carousel";
 
 export default function ProductCardImage({
   product,
@@ -14,16 +15,20 @@ export default function ProductCardImage({
   return (
     <>
       <Modal id={id} title={name}>
-        <ProductCardContainer>
-          <div className="relative grow">
-            <Image
-              className="w-full aspect-square rounded-t-xl object-contain"
-              fill={true}
-              src={imgUrl}
-              alt={name}
-            />
-          </div>
-        </ProductCardContainer>
+        <Carousel
+          items={imageUrls.map((url) => (
+            <ProductCardContainer>
+              <div className="relative grow">
+                <Image
+                  className="w-full aspect-square rounded-t-xl object-contain"
+                  fill={true}
+                  src={url}
+                  alt={name}
+                />
+              </div>
+            </ProductCardContainer>
+          ))}
+        />
       </Modal>
       <ModalButton className="relative grow" modalId={id}>
         <Image
