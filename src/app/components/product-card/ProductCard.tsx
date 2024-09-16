@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { ProductCardType } from "./ProductCard.type";
 import ProductCardCart from "./components/ProductCardCart";
 import ProductCardContainer from "./components/ProductCardContainer";
@@ -8,6 +9,7 @@ import ProductCardPrice from "./components/ProductCardPrice";
 import ProductCardQuantityIndicator from "./components/ProductCardQuantityIndicator";
 
 const ProductCard: ProductCardType = ({ product }) => {
+  const id = `modal-product-${product.id}`;
   return (
     <ProductCardContainer>
       <ProductCardImage product={product} />

@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { filterer } from ".";
 import { GetProductInput, ProductData } from "../type";
 import { getSheetData } from "./google/sheet";
@@ -24,7 +25,8 @@ async function getAndParseSheetToProductData(): Promise<ProductData[]> {
   const rows = sheetData?.filter((row) => !!row[0]) || [];
 
   let results =
-    rows?.map(([name, provider, price, quantity, images]) => ({
+    rows?.map(([name, provider, price, quantity, images], index) => ({
+      id: `product-${index}`,
       name,
       provider,
       price,
