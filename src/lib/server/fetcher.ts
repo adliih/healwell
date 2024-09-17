@@ -8,7 +8,7 @@ function parseImages(images: string): string[] {
     return [];
   }
 
-  const urls = images.split(",");
+  const urls = images.split(",").map((url) => url.trim());
   return urls.filter(isNonEmptyUrl);
 }
 
