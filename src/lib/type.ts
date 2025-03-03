@@ -4,6 +4,7 @@ export interface ProductData {
   provider: string;
   quantity?: string;
   price: string;
+  discountedPrice: string;
   imageUrls: string[];
 }
 

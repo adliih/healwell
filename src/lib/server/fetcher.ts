@@ -24,15 +24,29 @@ async function getAndParseSheetToProductData(): Promise<ProductData[]> {
 
   const rows = sheetData?.filter((row) => !!row[0]) || [];
 
-  let results =
-    rows?.map(([name, provider, price, quantity, images], index) => ({
-      id: `product-${index}`,
-      name,
-      provider,
-      price,
-      quantity,
-      imageUrls: parseImages(images),
-    })) || [];
+  let results: ProductData[] =
+    rows?.map(
+      ([
+        name,
+        provider,
+        price,
+        quantity,
+        images,
+        rawQty,
+        order,
+        isHidden,
+        id,
+        discountedPrice,
+      ]) => ({
+        id,
+        name,
+        provider,
+        price,
+        discountedPrice,
+        quantity,
+        imageUrls: parseImages(images),
+      })
+    ) || [];
 
   results = results.filter((r) => r.imageUrls.length > 0);
 
