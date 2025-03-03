@@ -14,6 +14,12 @@ const nextConfig = {
         port: "",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "develop.backendless.com",
+        port: "",
+        pathname: "**",
+      },
     ],
   },
 };
